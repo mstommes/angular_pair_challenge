@@ -1,4 +1,4 @@
-module.exports = function(grunt){
+module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         uglify: {
@@ -25,11 +25,21 @@ module.exports = function(grunt){
                 ],
                 "dest": "server/public/vendors/"
             },
+            angular: {
+                expand: true,
+                cwd: 'node_modules',
+                src: [
+                    "angular/angular.min.js",
+                    "angular/angular.min.js.map"
+                ],
+                "dest": "server/public/vendors/"
+            },
             html: {
                 expand: true,
                 cwd: 'client/views/',
                 src: [
-                    "index.html"
+                    "index.html",
+                    "welcome.html"
                 ],
                 "dest": "server/public/assets/views/"
             }
